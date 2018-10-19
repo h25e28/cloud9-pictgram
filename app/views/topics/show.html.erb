@@ -1,0 +1,23 @@
+<div class="topic-index-wrapper">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="topic-index-single">
+            <h2 class="topic-author">
+              <%= @topics.user.name %>
+            </h2>
+            <%= image_tag @topics.image.url %>
+            <% if !@topics.favorite_users.include?(current_user) %>
+            <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
+            <%= image_tag 'heart.png', class: 'topic-index-icon' %>
+            <% end %>
+            <% end %>
+            <%= image_tag 'comment.png', class: 'topic-index-icon' %>
+            <p class="topic-text">
+              <%= @topics.description %>
+            </p>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
